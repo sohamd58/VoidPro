@@ -82,7 +82,8 @@ ________________________________________
 Key Components
 1. File Monitoring System
 The file monitoring system is responsible for tracking any new files as the game downloads and installs. When a new game installation is detected, this system will kick off the compression process. Here’s how you can design it:
-•	File System Watcher: This will monitor the game installation folders for changes using a service like FileSystemWatcher on Windows or inotify on Linux. 
+•	File System Watcher: This will monitor the game installation folders for changes using a service like FileSystemWatcher on Windows or inotify on Linux.
+``` 
 o	Windows (C#): 
 o	FileSystemWatcher watcher = new FileSystemWatcher();
 o	watcher.Path = @"C:\Games";  // Game installation directory
@@ -106,6 +107,7 @@ o	event_handler = Watcher()
 o	observer = Observer()
 o	observer.schedule(event_handler, path='/path/to/games', recursive=False)
 o	observer.start()
+```
 2. Compression/Decompression Engine
 The engine will compress the game files when they are downloaded and install them. When a game is run, it will automatically decompress files to memory or disk before execution.
 •	Compression Process:
@@ -116,6 +118,7 @@ o	Track the state of files (whether compressed or decompressed).
 o	Before a game is launched, the software will decompress the necessary files into memory (RAM) or the temporary directory.
 o	Use multi-threading or parallelization to speed up decompression and improve performance.
 •	Code Example:
+```
 o	Python (Using Zstandard for compression/decompression): 
 o	import zstandard as zstd
 o	
@@ -130,6 +133,7 @@ o	    with open(input_file, 'rb') as f_in:
 o	        with open(output_file, 'wb') as f_out:
 o	            dctx = zstd.ZstdDecompressor()
 o	            dctx.copy_stream(f_in, f_out)
+```
 •	Decompression and Running Game:
 o	The software should first decompress the necessary files.
 o	After decompression, the game is executed in its normal manner.
@@ -139,6 +143,7 @@ Metadata will track which files are compressed and their corresponding decompres
 o	You can use a lightweight database (e.g., SQLite) to store metadata about each game and the corresponding compressed files.
 o	Alternatively, store metadata in a flat file (JSON, XML) if the database is overkill.
 •	Example Metadata Structure (JSON):
+```
 •	{
 •	  "game_name": "Game X",
 •	  "files": [
@@ -146,6 +151,7 @@ o	Alternatively, store metadata in a flat file (JSON, XML) if the database is ov
 •	    {"file_path": "game_data/assets/music/file2.dat", "compressed": false}
 •	  ]
 •	}
+```
 4. User Interface
 The user interface should be simple and intuitive. It will display the status of compression for each game, allow users to manually trigger compression or decompression, and monitor available storage.
 •	UI Framework: 
@@ -204,13 +210,13 @@ ________________________________________
 2. Create the Prototype Code
 Here's the Python code to create a prototype for the compression/decompression system:
 File Compression and Decompression Script
+```
 import zstandard as zstd
 import os
 import shutil
 import json
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
-
 # Helper Functions for Compression and Decompression
 def compress_file(input_file, output_file):
     """Compress a file using Zstandard."""
@@ -301,6 +307,7 @@ if __name__ == "__main__":
 
     # Simulate running a game (for testing)
     run_game("./games/game_example_data/file1.dat")
+```
 ________________________________________
 3. How This Prototype Works
 File Compression and Decompression:
