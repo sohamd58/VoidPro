@@ -1,5 +1,7 @@
-# PocketGaming
-An application that allows you to store multiple games and their large game files, irrespective of the storage limit on your computer, using smart compression and decompression.
+# VoidPro
+A dynamic compression engine that adapts and overcomes storage limits.
+
+The next-gen solution that allows you to store multiple games and their large game files, irrespective of the storage limit on your computer, using smart compression and decompression.
 
 Here's the inital approach to the project: 
 Let me break it down:
