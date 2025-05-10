@@ -71,8 +71,6 @@ Options:
 
 ## Development Status
 
-This engine currently handles files up to ~100MB efficiently. For very large files (>1GB), see `OPTIMIZATION_ROADMAP.md` for planned improvements to handle files up to 300GB.
+This engine currently handles files up to ~100MB efficiently. Future developements and optimizations are planned to make the engine capable of handling files of upto 300GB.
 
-## License
 
-[MIT License]
