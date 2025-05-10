@@ -1,0 +1,13 @@
+[project]
+name = "VoidPro-Compression-Engine"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.11"
+dependencies = [
+    "brotli>=1.1.0",
+    "lz4>=4.4.4",
+    "numpy>=2.2.5",
+    "pytest>=8.3.5",
+    "python-magic>=0.4.27",
+    "zstandard>=0.23.0",
+]
