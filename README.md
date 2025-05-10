@@ -71,6 +71,6 @@ Options:
 
 ## Development Status
 
-This engine currently handles files up to ~100MB efficiently. Future developements and optimizations are planned to make the engine capable of handling files of upto 300GB.
+This engine currently handles files up to ~100MB efficiently and can handle files up to ~1GB at most. Future developements and optimizations are planned to make the engine capable of handling files of up to 300GB.
 
 
